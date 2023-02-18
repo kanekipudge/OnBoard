@@ -13,7 +13,6 @@ from werkzeug.urls import url_parse
 
 
 @login_required
-@app.route('/')
 @app.route('/home')
 def home():
     if current_user.is_authenticated:
@@ -22,6 +21,7 @@ def home():
         return render_template('login.html', title='login')
 
 
+@app.route('/')
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -50,7 +50,7 @@ def login():
 @app.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('home'))
+    return redirect(url_for('login'))
 
 
 @app.route('/move_user', methods=['GET', 'POST'])
