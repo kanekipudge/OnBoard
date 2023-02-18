@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>OnBoard</title>
+    <link href="ONboard_frontend/style1.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+  <div class="left">
+  <img class="logo" src="ONboard_frontend/media/Vector.jpg" alt="">
+  </div>
+  <div class="center"></div>
+  <div class="right">
+    <div class="circle">
+      <p id="center">user.name[0]</p>
+    </div>
+    <div class="info_user">
+      <div class="user_name">
+        <p id='log_name'>{{user.name, user.surname}}</p>
+        <p>{{user.role}}</p>
+      </div>
+      </div>
+    </div>
+  </div>
+    </header>
+
+    <div class="top_mid_cont">
+      <h3>Привет, {{user.name}}!</h3>
+      <h5>Ты с нами уже 13 дней!</h5>
+    </div>
+    <div class="wrapper_mid">
+      <img id='roadmap' src="ONboard_frontend/media/nav_bar.png" alt="">
+    </div>
+
+    <div class="wrapper_mid_main">
+      <div id='first' class="mid_div">
+        <h2>Чекпоинт {{user.checkpoint_current}}</h2>
+        <div class="task_cont">
+          <img src="ONboard_frontend/media/circle_dot.png" alt="">
+          <p>Отправить отчёт</p>
+        </div>
+          <div class="task_cont">
+            <img src="ONboard_frontend/media/circle_yellow.svg" alt="">
+            <p>Выполнить 3 теста</p>
+          </div>
+          <div class="task_cont">
+            <img src="ONboard_frontend/media/circle_yellow.svg" alt="">
+            <p>Посетить созвон команды</p>
+          </div>
+
+        <div class="button">
+          <a id='educate' href="/educate">Пройти обучене</a>
+        </div>
+      </div>
+      <div id='second' class="mid_div">
+        <h2>Достижения</h2>
+        <div class="img_cont">
+          <img src="ONboard_frontend/media/second_div_bars.pngmedia\second_div_bars.png" alt="">
+        </div>
+      </div>
+      <div id='third' class="mid_div">
+        <h2>Библиотека</h2>
+        <div class="bar">
+          <img src="ONboard_frontend/media/books.svg" alt="">
+          <a href="#">Документы</a>
+        </div>
+        <div class="bar">
+          <img src="ONboard_frontend/media/topchat.svg" alt="">
+          <a href="#">Медиатека</a>
+        </div>
+        <div class="bar">
+          <img src="ONboard_frontend/media/clockwise.svg" alt="">
+          <a href="#">Стек</a>
+        </div>
+        <div class="bar">
+          <img src="ONboard_frontend/media/question.svg" alt="">
+          <a href="#">Q&A</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper_bot">
+      <div class="">
+
+      </div>
+      <div class="">
+
+      </div>
+      <div class="">
+
+      </div>
+    </div>
+  </body>
+</html>

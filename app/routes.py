@@ -15,7 +15,7 @@ from werkzeug.urls import url_parse
 
 @login_required
 @app.route('/')
-@app.route('/index')
+@app.route('/home')
 def index():
     user = {'username': 'Эльдар Рязанов'}
     posts = [
@@ -32,18 +32,17 @@ def index():
             'body': 'Какая гадость эта ваша заливная рыба!!'
         }
     ]
-    return render_template('index.html', title='Home', user=user, posts=posts)
+    return render_template('home.html', title='Home', user=user)
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('index'))
+        return redirect(url_for('home'))
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user is None:
-                # or not user.check_password(form.password.data)
             flash('Invalid username or password')
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
@@ -52,15 +51,16 @@ def login():
         session['role'] = user.role
         print(user.role)
         if not next_page or url_parse(next_page).netloc != '':
-            next_page = url_for('index')
+            next_page = url_for('home')
         return redirect(next_page)
     return render_template('login.html', title='Sign In', form=form)
+
 
 @login_required
 @app.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('index'))
+    return redirect(url_for('home'))
 
 
 @app.route('/move_user', methods=['GET', 'POST'])
@@ -72,6 +72,3 @@ def move_user():
             chosen_user.checkpoint = form.checkpoint_number.data
         return render_template('moving_user.html', title='Move User', form=form)
 
-
-# current_session = requests.session()
-# current_session.get('/')
