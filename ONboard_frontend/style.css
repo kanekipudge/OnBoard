@@ -1,0 +1,204 @@
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+button{
+  padding: 0;
+  border-width: 0;
+
+}
+
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+
+body{
+  font-family: GT Eesti;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: 0em;
+  height: 900px;
+  width: 1450px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+
+.wrapper{
+
+  margin-left: 350px;
+  margin-right: 350px;
+  margin-top: 121px;
+  margin-bottom: 225px;
+  border-radius: 25px;
+  border: 0;
+}
+
+.reg_form{
+  border-radius: 25px;
+  display: grid;
+  background: #8C64D7;
+  height: 450px;
+  width: 750px;
+}
+
+.title{
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  margin-top: 26px;
+}
+
+.forms{
+  display: flex;
+  justify-content: space-around;
+  height: auto;
+  padding: 10px;
+}
+
+.reg_input{
+  border-radius: 25px;
+  border: 0;
+  width: 300px;
+  height: 50px;
+
+}
+.header{
+  margin-top: 58px;
+  width: 100%;
+}
+
+.logo{
+  padding-top: 52px;
+  padding-left: 175px;
+}
+
+input{
+  font-family: GT Eesti;
+  color: #ffffff;
+  padding: 5px;
+  font-size: 16px;
+
+}
+
+input[type=submit]{
+  background: transparent;
+  border: none;
+
+  font-size: 26px;
+
+}
+
+div#down{
+  margin-top: 25px;
+  margin-bottom: 23px;
+  display: flex;
+  justify-content: space-around;
+  width: 300px;
+  border: 5px solid white;
+  border-radius:25px;
+  color: white;
+}
+
+div#down:hover{
+  transition: 0.4s;
+  background: white;
+  border: 5px solid #DAEF14;
+
+}
+div.title input:hover{
+  color: #8C64D7;
+}
+/* LOGIN PAGE! */
+.wrapper_login{
+  margin-top: 146px;
+  margin-bottom: 250px;
+  margin-left: 525px;
+  margin-right: 525px;
+}
+.authorization{
+  background: #8C64D7;
+  border-radius: 25px;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  font-size: 40px;
+}
+
+.formsLogin{
+  display: flex;
+  justify-content: space-around;
+  height: auto;
+  margin-top: 30px;
+  padding: 10px;
+  color: #ffffff;
+}
+
+.titleLogin{
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  margin-top: 26px;
+}
+
+div#downlogin{
+  margin-top: 20px;
+  margin-bottom: 22px;
+  display: flex;
+  justify-content: space-around;
+  width: 300px;
+  border: 5px solid white;
+  border-radius:25px;
+  color: white;
+  height: 65px;
+}
+
+.submit_input_login{
+  height: 65px;
+}
+
+.reg_inputlogin{
+  border-radius: 25px;
+  border: 0;
+  width: 300px;
+  height: 50px;
+  color: #D9D9D9;
+  padding-left: 5px;
+}
+
+div#downlogin:hover{
+  transition: 0.4s;
+  background: white;
+  border: 5px solid #DAEF14;
+
+}
+div.titleLogin input:hover{
+  color: #8C64D7;
+}
+
+@font-face {
+font-family: "GT Eesti";
+src: url("fonts/gteestiprodisplay_regular.otf") format("opentype");
+font-style: normal;
+font-weight: normal;
+}
