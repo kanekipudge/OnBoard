@@ -13,4 +13,4 @@ class LoginForm(FlaskForm):
 class UsermoveForm(FlaskForm):
     user_id = IntegerField('Id пользователя', validators=[DataRequired()])
     checkpoint_number = IntegerField('Нужный чекпоинт', validators=[DataRequired()])
-    submit = SubmitField('Sign In')
+    submit = SubmitField('Готово')
