@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-import requests
 
-from app import app
+
 from flask import render_template, flash, redirect, url_for
 from app import app
 from app.forms import LoginForm, UsermoveForm
@@ -17,7 +16,10 @@ from werkzeug.urls import url_parse
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template('home.html', title='Home')
+    if current_user.is_authenticated:
+        return render_template('home.html', title='Home')
+    else:
+        return render_template('login.html', title='login')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -34,10 +36,13 @@ def login():
         next_page = request.args.get('next')
         session['authorized'] = user.id
         session['role'] = user.role
-        print(user.role)
+        session['name'] = user.name
+        session['checkpoint'] = user.checkpoint_current
+        session['surname'] = user.surname
+        print(user.name)
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('home')
-        return redirect(next_page)
+        return redirect(next_page), user
     return render_template('login.html', title='Sign In', form=form)
 
 
@@ -56,4 +61,3 @@ def move_user():
             chosen_user = User.query.filter_by(id=form.user_id.data).first()
             chosen_user.checkpoint = form.checkpoint_number.data
         return render_template('moving_user.html', title='Move User', form=form)
-
