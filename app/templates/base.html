@@ -6,10 +6,10 @@
         {% else %}
         <title>Onboarding</title>
         {% endif %}
-        <link type="css" href="{{ url_for('static', filename='css/style1.css')}}" rel="stylesheet"/>
+        <link type="text/css" href="{{ url_for('static', filename='style/style1.css')}}" rel="stylesheet">
     </head>
     <body>
-        <div>
+        <div style="position: absolute;">
             Onboard:
             <a href="{{ url_for('home') }}">Домой</a>
             {% if current_user.is_anonymous %}

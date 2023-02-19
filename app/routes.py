@@ -2,7 +2,7 @@
 
 
 from flask import render_template, flash, redirect, url_for
-from app import app
+from app import app, db
 from app.forms import LoginForm, UsermoveForm
 from flask_login import current_user, login_user
 from app.models import User
@@ -55,9 +55,9 @@ def logout():
 
 @app.route('/move_user', methods=['GET', 'POST'])
 def move_user():
-    if session['role'] == 'HR':
+    if session['role'] == 'HR' or 'supervisor':
         form = UsermoveForm()
-        if form.validate_on_submit():
-            chosen_user = User.query.filter_by(id=form.user_id.data).first()
-            chosen_user.checkpoint = form.checkpoint_number.data
+        if form.validate_on_submit() and request.method == 'POST':
+            chosen_user = User.query.filter_by(email=form.user_email.data).first()
+            db.chosen_user.checkpoint_current = form.checkpoint_number.data
         return render_template('moving_user.html', title='Move User', form=form)
